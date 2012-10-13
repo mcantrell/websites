@@ -8,8 +8,12 @@
 </head>
 
 <body>
+<div class="container banner">
+
+</div>
+<!--#include file="topNav.shtml" -->
+
 <div class="container">
-    <!--#include file="topNav.shtml" -->
     <div class="row">
         <div class="span12">
             <div class="page-header">
