@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Zuul | DevNull</title>
+    <title>Mike Cantrell | DevNull</title>
 
     <!--#include file="includes/header.shtml" -->
 
@@ -44,8 +44,7 @@
             <div class="row vertical-spaced">
                 <div class="span8">
                     Hello! I run this website and work on these projects in my spare time <em>(with what little I have
-                    left of it these days)</em>. My hope is to share some of the work that I do and that it will be
-                    of use to others.
+                    left of it these days)</em>. My hope is to learn while sharing some of the work that I do.
                 </div>
             </div>
             <div class="row">
