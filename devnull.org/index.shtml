@@ -3,15 +3,12 @@
 <head>
     <title>Zuul | DevNull</title>
 
-    <!--#include virtual="header.shtml" -->
+    <!--#include file="includes/header.shtml" -->
 
 </head>
 
 <body>
-<div class="container banner">
-
-</div>
-<!--#include file="topNav.shtml" -->
+<!--#include file="includes/topNav.shtml" -->
 
 <div class="container">
     <div class="row">
@@ -116,10 +113,10 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="features">
-                    <!--#include file="features.shtml" -->
+                    <!--#include file="includes/zuul/features.shtml" -->
                 </div>
                 <div class="tab-pane" id="roadmap">
-                    <!--#include file="roadmap.shtml" -->
+                    <!--#include file="includes/zuul/roadmap.shtml" -->
                 </div>
             </div>
         </div>
@@ -132,9 +129,8 @@
             </h3>
         </div>
     </div>
-
-    <!--#include file="footer.shtml" -->
 </div>
+<!--#include file="includes/footer.shtml" -->
 <script>
     $(function () {
         $("#zuulCarousel").carousel();
