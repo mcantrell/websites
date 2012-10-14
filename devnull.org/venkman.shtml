@@ -31,7 +31,7 @@
 <!--#include file="includes/footer.shtml" -->
 <script>
     $(function () {
-        selectTab("venkman");
+        selectTab("#venkman");
     });
 </script>
 </body>

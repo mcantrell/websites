@@ -58,7 +58,7 @@
 <!--#include file="includes/footer.shtml" -->
 <script>
     $(function () {
-        selectTab("about");
+        selectTab("#about");
     });
 </script>
 </body>

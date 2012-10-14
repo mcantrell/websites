@@ -13,5 +13,5 @@ _gaq.push(['_trackPageview']);
 
 function selectTab(tab) {
     $(".nav li").removeClass("active");
-    $("#" + tab).addClass("active");
+    $(tab).addClass("active");
 }
