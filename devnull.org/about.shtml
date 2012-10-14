@@ -12,15 +12,7 @@
 <!--#include file="includes/topNav.shtml" -->
 
 <div class="container">
-    <div class="row vertical-spaced">
-        <div class="span12">
-            <div class="page-header">
-                <h1>Mike Cantrell
-                    <small>Technologist</small>
-                </h1>
-            </div>
-        </div>
-    </div>
+
     <div class="row vertical-spaced" style="margin-bottom: 65px;">
         <div class="span4">
             <ul class="thumbnails">
@@ -44,13 +36,47 @@
             </ul>
         </div>
         <div class="span8">
-            <h3>Hello!</h3>
-            <p>
-                Curabitur a urna vitae nisi venenatis tincidunt. Etiam vitae velit nec tellus bibendum porta id vel nunc. In et metus ipsum. Donec id quam sed tellus pellentesque auctor in sit amet diam. Nullam eleifend, lorem sit amet rutrum viverra, nibh metus euismod felis, sit amet viverra nisi elit vel nibh. Praesent eget sem commodo lacus fermentum hendrerit. Aenean non lorem turpis, ut pharetra ipsum. Suspendisse sit amet molestie dolor. Aliquam eu sem non nisi bibendum euismod vel vel felis. Donec porta libero eros, ut tempus mauris. Phasellus convallis dui sit amet lorem elementum euismod. Nulla facilisi.
-            </p>
-            <p>
-               Pellentesque aliquet ante vitae nisl tempor viverra. In et ipsum ac turpis ultrices facilisis. Curabitur augue ante, fringilla tristique aliquam a, tempus aliquet nulla. Duis vehicula augue id justo ornare posuere. Duis adipiscing eleifend diam porta sodales. In dictum nisl in est suscipit non faucibus erat fringilla. Sed gravida venenatis rhoncus. Cras neque leo, scelerisque eu dapibus a, facilisis sed eros.
-            </p>
+            <div class="page-header">
+                <h1>Mike Cantrell
+                    <small>Technologist</small>
+                </h1>
+            </div>
+            <div class="row vertical-spaced">
+                <div class="span8">
+                    Hello! I run this website and work on these projects in my spare time <em>(with what little I have
+                    left of it these days)</em>. My hope is to share some of the work that I do and that it will be
+                    of use to others.
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4">
+                    <h4>Background</h4>
+                    <blockquote>Where I've been..</blockquote>
+                    <ul>
+                        <li>Software Developer</li>
+                        <li>Systems Engineer</li>
+                        <li>Agile Development Enthusiast</li>
+                        <li>Groovy, Spring Evangelist</li>
+                        <li>Solver of Problems</li>
+                    </ul>
+                </div>
+                <div class="span4">
+                    <h4>Foreground</h4>
+                    <blockquote>Where I'm heading..</blockquote>
+                    <ul>
+                        <li>
+                            Big Data
+                            <ul>
+                                <li>MongoDB</li>
+                                <li>HBase</li>
+                                <li>MapReduce</li>
+                            </ul>
+                        </li>
+                        <li>User Experience</li>
+                        <li>HTML5</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
