@@ -16,9 +16,9 @@
     <div class="row vertical-spaced" style="margin-bottom: 65px;">
         <div class="span4">
             <ul class="thumbnails">
-                <li class="span4">
+                <li class="span3">
                     <div class="thumbnail">
-                        <img src="http://www.gravatar.com/avatar/f6e3d02a38652dd089dccbd80f09cc04?s=350" alt="Picture">
+                        <img src="http://www.gravatar.com/avatar/f6e3d02a38652dd089dccbd80f09cc04?s=250" alt="Picture">
 
                         <p class="vertical-spaced" style="text-align: center;">
                             <a href="https://plus.google.com/116207586575258178131" target="_blank">
