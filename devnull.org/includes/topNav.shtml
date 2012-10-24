@@ -19,6 +19,7 @@
                 <ul class="nav">
                     <li id="zuul"><a href="index.shtml">Zuul</a></li>
                     <li id="venkman"><a href="venkman.shtml">Venkman</a></li>
+                    <li id="blog"><a href="http://ramblings.devnull.org/">Blog</a></li>
                     <li id="about"><a href="about.shtml">About</a></li>
                 </ul>
             </div>
