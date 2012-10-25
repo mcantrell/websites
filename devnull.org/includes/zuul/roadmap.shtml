@@ -31,4 +31,13 @@
             provides a more secure mechanism to keep your sensitive data safe.
         </p>
     </div>
+    <div class="span3">
+        <h4>Stronger PBE Encryption</h4>
+        <hr>
+        <p>
+            Currently, the PBEWithMD5AndDES algorithm is used to encrypt values. Future versions
+            will support PBEWithMD5AndTripleDES but will require <em>Java Cryptography Extension (JCE)
+            Unlimited Strength Jurisdiction Policy Files</em> installed.
+        </p>
+    </div>
 </div>
