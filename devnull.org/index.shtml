@@ -88,12 +88,12 @@
     <div class="row vertical-spaced">
         <div class="span12">
             <div class="btn-group" style="text-align: center;">
-                <a id="zuulDownload" class="btn btn-danger btn-large" title="Snapshot Release"
-                   data-content="This release is still under development. It should be relatively
-                   stable but it has not been widely tested. Please provide feedback/bugs at the github site."
-                   href="https://s3.amazonaws.com/devnull.org/zuul-web-1.0-RC2-SNAPSHOT.war">
+                <a id="zuulDownload" class="btn btn-danger btn-large" title="Zuul 1.0"
+                   data-content="This is the first release of Zuul. Your feedback is greatly appreciated.
+                    Please log any issues or provide suggestions at the Github site"
+                   href="https://s3.amazonaws.com/devnull.org/zuul-web-1.0.war">
                     <i class="icon-download icon-white"></i>
-                    Download 1.0-SNAPSHOT
+                    Download 1.0
                 </a>
                 <a class="btn btn-primary btn-large" href="https://github.com/mcantrell/zuul" target="_blank">Source
                     Code &raquo;</a>
