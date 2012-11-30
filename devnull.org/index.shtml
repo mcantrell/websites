@@ -88,9 +88,7 @@
     <div class="row vertical-spaced">
         <div class="span12">
             <div class="btn-group" style="text-align: center;">
-                <a id="zuulDownload" class="btn btn-danger btn-large" title="Zuul 1.0"
-                   data-content="This is the first release of Zuul. Your feedback is greatly appreciated.
-                    Please log any issues or provide suggestions at the Github site"
+                <a id="zuulDownload" class="btn btn-danger btn-large"
                    href="https://s3.amazonaws.com/devnull.org/zuul-web-1.1.war">
                     <i class="icon-download icon-white"></i>
                     Download 1.1
@@ -134,7 +132,6 @@
 <script>
     $(function () {
         $("#zuulCarousel").carousel();
-        $("#zuulDownload").popover({trigger:'hover'});
         selectTab("#zuul");
         $("#zuulFeaturesTab a:first").tab('show');
     });
