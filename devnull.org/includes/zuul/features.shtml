@@ -51,3 +51,19 @@
         </p>
     </div>
 </div>
+<div class="row vertical-spaced">
+    <div class="span3">
+        <h4>Auditing</h4>
+        <hr>
+        <p>
+            Keep a an audit trail of who changed what settings and when.
+        </p>
+    </div>
+    <div class="span3">
+        <h4>Search</h4>
+        <hr>
+        <p>
+            Navigate to settings via a simple search.
+        </p>
+    </div>
+</div>

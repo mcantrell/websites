@@ -1,29 +1,5 @@
 <div class="row vertical-spaced">
     <div class="span3">
-        <h4>Auditing</h4>
-        <hr>
-        <p>
-            Keep a an audit trail of who changed what settings and when.
-        </p>
-    </div>
-    <div class="span3">
-        <h4>Versioned Settings</h4>
-        <hr>
-        <p>
-            Isolate settings by version in addition to environment.
-        </p>
-    </div>
-    <div class="span3">
-        <h4>Search</h4>
-        <hr>
-        <p>
-            Navigate to settings via a simple search.
-        </p>
-    </div>
-</div>
-
-<div class="row vertical-spaced">
-    <div class="span3">
         <h4>Public/Private Key Encryption</h4>
         <hr>
         <p>
@@ -40,4 +16,30 @@
             Unlimited Strength Jurisdiction Policy Files</em> installed.
         </p>
     </div>
+    <div class="span3">
+        <h4>Environment Based Roles</h4>
+        <hr>
+        <p>
+            Enable roles based on environment. For instance, allow your development staff full control
+            over dev environments but restrict the production environments to your operational staff.
+        </p>
+    </div>
 </div>
+<div class="row vertical-spaced">
+    <div class="span3">
+        <h4>Hierarchical Configurations</h4>
+        <hr>
+        <p>
+            Mash up multiple configurations into a single configuration with inheritance and overridden
+            values.
+        </p>
+    </div>
+    <div class="span3">
+        <h4>Syndicated Feeds</h4>
+        <hr>
+        <p>
+            Subscribe to changes via RSS or Atom feeds.
+        </p>
+    </div>
+</div>
+
