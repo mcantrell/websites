@@ -41,5 +41,13 @@
             Subscribe to changes via RSS or Atom feeds.
         </p>
     </div>
+    <div class="span3">
+        <h4>Dependency Analysis</h4>
+        <hr>
+        <p>
+            Track download activity in order to gain oversight into what configuration settings
+            are being used.
+        </p>
+    </div>
 </div>
 

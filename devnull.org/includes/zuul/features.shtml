@@ -38,7 +38,8 @@
         <h4>Single Sign On</h4>
         <hr>
         <p>
-            Integrates with popular single sign on providers such as Google and Yahoo via OpenID.
+            Integrates with popular single sign on providers such as Google and Yahoo via OpenID. If OpenID
+            isn't your thing, you can also configure it to authenticate against LDAP.
         </p>
     </div>
     <div class="span3">
