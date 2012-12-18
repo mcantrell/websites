@@ -89,9 +89,9 @@
         <div class="span12">
             <div class="btn-group" style="text-align: center;">
                 <a id="zuulDownload" class="btn btn-danger btn-large"
-                   href="https://s3.amazonaws.com/devnull.org/zuul-web-1.1.war">
+                   href="https://s3.amazonaws.com/devnull.org/zuul-web-1.2.war">
                     <i class="icon-download icon-white"></i>
-                    Download 1.1
+                    Download 1.2
                 </a>
                 <a class="btn btn-primary btn-large" href="https://github.com/mcantrell/zuul" target="_blank">Source
                     Code &raquo;</a>

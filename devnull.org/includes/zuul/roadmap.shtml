@@ -16,14 +16,6 @@
             Unlimited Strength Jurisdiction Policy Files</em> installed.
         </p>
     </div>
-    <div class="span3">
-        <h4>Environment Based Roles</h4>
-        <hr>
-        <p>
-            Enable roles based on environment. For instance, allow your development staff full control
-            over dev environments but restrict the production environments to your operational staff.
-        </p>
-    </div>
 </div>
 <div class="row vertical-spaced">
     <div class="span3">
