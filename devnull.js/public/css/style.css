@@ -17,6 +17,14 @@
     padding-right:55px;
 }
 
+#profile-thumbnail a {
+    margin: 3px;
+}
+
+#profile-thumbnail p {
+    text-align: center;
+}
+
 .stacked {
     margin-top: 1em;
     margin-bottom: 1em;
