@@ -7,9 +7,9 @@ block content
                 h1 Zuul
                     small  Application Configuration Management..
             blockquote
-                |Zuul is a free, open source web application which can be used to centralize and manage
-                |configuration for your internal applications. It enables your operations team
-                |to control changes and your developers a centralized place to organize settings.
+                | Zuul is a free, open source web application which can be used to centralize and manage
+                | configuration for your internal applications. It enables your operations team
+                | to control changes and your developers a centralized place to organize settings.
     div(class='row')
         div(class='span10 offset1')
             div(id="zuulCarousel", class="carousel slide")
@@ -19,15 +19,15 @@ block content
                         div(class="carousel-caption")
                             h4 Centralized Settings
                             p
-                                |Provision your application configuration files by environment and configure them in a
-                                |single location. Let your support and operations team view and configure important
-                                |resources such as database URLs and credentials.
+                                | Provision your application configuration files by environment and configure them in a
+                                | single location. Let your support and operations team view and configure important
+                                | resources such as database URLs and credentials.
                     div(class="item")
                         img(alt="single sign on", src="/images/zuul/sso.png")
                         div(class="carousel-caption")
                             h4 Single Sign On
                             p
-                                |Integrates with popular single sign on providers such as Google and Yahoo via OpenID.
+                                | Integrates with popular single sign on providers such as Google and Yahoo via OpenID.
                     div(class="item")
                         img(alt="roles", src="/images/zuul/roles.png")
                         div(class="carousel-caption")
@@ -48,16 +48,118 @@ block content
             div(class='btn-group')
                 a(class="btn btn-danger btn-large", href="https://s3.amazonaws.com/devnull.org/zuul-web-1.2.war")
                     i(class='icon-white icon-download')
-                    |  Download 1.2
+                    | Download 1.2
                 a(class="btn btn-primary btn-large", href="https://github.com/mcantrell/zuul", target="_blank")
-                    |  Source Code &raquo;
+                    | Source Code &raquo;
                 a(class="btn btn-primary btn-large", href="https://github.com/mcantrell/Zuul/wiki", target="_blank")
-                    |  Documentation &raquo;
+                    | Documentation &raquo;
                 a(class="btn btn-primary btn-large", href="/LICENSE.txt", target="_blank")
-                    |  License &raquo;
+                    | License &raquo;
+    div(class='row stacked')
+        div(class='span12')
+            ul(class='nav nav-tabs')
+                li(class='active', id='featuresTab')
+                    a(data-toggle='tab', href='#features') Features
+                li
+                    a(data-toggle='tab', href='#roadmap') Road Map
+            div(class='tab-content')
+                div(class='tab-pane active', id='features')
+                    ul(class='unstyled')
+                        li(class='span3')
+                            h4 Centralized Management
+                            hr
+                            p
+                                | Provision your application configuration files by environment and configure them in a
+                                | single location. Let your support and operations team view and configure important
+                                | resources such as database URLs and credentials.
+                        li(class='span3')
+                            h4 Encryption
+                            hr
+                            p
+                                | Encrypt and decrypt sensitive values use password based encryption. Currently,
+                                | PBEWithMD5AndDES is used but PBEWithMD5AndTripleDES will be coming in a future release.
+                                | PGP is also on the roadmap.
+                        li(class='span3')
+                            h4 Web Services
+                            hr
+                            p
+                                | Easily access the configuration data from within your application via RESTful services.
+                                | Content can be rendered as JSON or Java Properties files.
+                        li(class='span3')
+                            h4 Role Based Access Controls
+                            hr
+                            p
+                                | Pre-defined user roles allow you to restrict which users have access to various
+                                | functions and features within the application.
+                        li(class='span3')
+                            h4 Single Sign In
+                            hr
+                            p
+                                | Integrates with popular single sign on providers such as Google and Yahoo via OpenID.
+                                | If OpenID isn't your thing, you can also configure it to authenticate against LDAP
+                                | or ActiveDirectory.
+                        li(class='span3')
+                            h4 Spring Client
+                            hr
+                            p
+                                | Seamlessly integrate your <a href="http://springframework.org/">Spring applications</a>
+                                | with  our <a href="https://github.com/mcantrell/Zuul/wiki/Client-Integration">custom
+                                | client</a> and spring XML namespace.
+                        li(class='span3')
+                            h4 Audit Changes
+                            hr
+                            p
+                                | Keep a an audit trail of who changed what settings and when.
+                        li(class='span3')
+                            h4 Search
+                            hr
+                            p
+                                | Navigate to settings via a simple search.
+                        li(class='span3')
+                            h4 Environment Based Roles
+                            hr
+                            p
+                                | Enable roles based on environment. For instance, allow your development staff full
+                                | control over dev environments but restrict the production environments to your
+                                | operational staff.
+
+
+                div(class='tab-pane', id='roadmap')
+                    ul(class='unstyled')
+                        li(class='span3')
+                            h4 Public/Private Key Encryption
+                            hr
+                            p
+                                | Allow properties to be encrypted asymmetrically with PGP public and private keys.
+                                | This provides a more secure mechanism to keep your sensitive data safe.
+                        li(class='span3')
+                            h4 Stronger PBE Encryption
+                            hr
+                            p
+                                | Currently, the PBEWithMD5AndDES algorithm is used to encrypt values. Future versions
+                                | will support PBEWithMD5AndTripleDES but will require Java Cryptography Extension (JCE)
+                                | Unlimited Strength Jurisdiction Policy Files installed.
+                        li(class='span3')
+                            h4 Hierarchical Configurations
+                            hr
+                            p
+                                | Mash up multiple configurations into a single configuration with inheritance and
+                                | overridden values.
+                        li(class='span3')
+                            h4 Syndicated Feeds
+                            hr
+                            p
+                                | Subscribe to changes via RSS or Atom feeds.
+                        li(class='span3')
+                            h4 Dependency Analysis
+                            hr
+                            p
+                                | Track download activity in order to gain oversight into what configuration settings
+                                | are being used.
 
     script
         $(function () {
             selectTab("#zuul");
             $("#zuulCarousel").carousel();
+            $("#featuresTab a:first").tab('show');
         });
