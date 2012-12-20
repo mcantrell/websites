@@ -1,0 +1,1 @@
+The www.devnull.org website done in Node.js. My attempt to learn Node.js in a simple environment. 

@@ -1,0 +1,34 @@
+
+#topNav.affix {
+    position: fixed;
+    top: 0px;
+    left: auto;
+    right: auto;
+    width: 100%;
+    z-index: 9999;
+}
+
+#main {
+    min-height: 450px;
+}
+
+.stacked {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    min-height: 80px;
+    margin: 0;
+    background: #000 url(../images/banner.png) no-repeat top left;
+}
+
+.footer {
+    display: block;
+    width: 100%;
+    min-height: 250px;
+    margin: 0;
+    background: #000 url(../images/footer.png) no-repeat top left;
+}

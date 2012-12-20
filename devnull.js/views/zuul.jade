@@ -1,0 +1,63 @@
+extends layout
+
+block content
+    div(class='row')
+        div(class='span12')
+            div(class='page-header')
+                h1 Zuul
+                    small  Application Configuration Management..
+            blockquote
+                |Zuul is a free, open source web application which can be used to centralize and manage
+                |configuration for your internal applications. It enables your operations team
+                |to control changes and your developers a centralized place to organize settings.
+    div(class='row')
+        div(class='span10 offset1')
+            div(id="zuulCarousel", class="carousel slide")
+                div(class="carousel-inner")
+                    div(class="active item")
+                        img(alt="settings", src="/images/zuul/settings.png")
+                        div(class="carousel-caption")
+                            h4 Centralized Settings
+                            p
+                                |Provision your application configuration files by environment and configure them in a
+                                |single location. Let your support and operations team view and configure important
+                                |resources such as database URLs and credentials.
+                    div(class="item")
+                        img(alt="single sign on", src="/images/zuul/sso.png")
+                        div(class="carousel-caption")
+                            h4 Single Sign On
+                            p
+                                |Integrates with popular single sign on providers such as Google and Yahoo via OpenID.
+                    div(class="item")
+                        img(alt="roles", src="/images/zuul/roles.png")
+                        div(class="carousel-caption")
+                            h4 Role Based Access Control
+                            p
+                                | System administrators can easily control who has access to which features with user to
+                                | role mappings.
+                    div(class="item")
+                        img(alt="encryption", src="/images/zuul/keys.png")
+                        div(class="carousel-caption")
+                            h4 Encryption Keys
+                            p
+                                | Manage keys to allow your users to encrypt/decrypt values.
+                    a(class="carousel-control left", href="#zuulCarousel", data-slide="prev") &lsaquo;
+                    a(class="carousel-control right", href="#zuulCarousel", data-slide="next") &rsaquo;
+    div(class='row stacked')
+        div(class='span12', style='text-align:center;')
+            div(class='btn-group')
+                a(class="btn btn-danger btn-large", href="https://s3.amazonaws.com/devnull.org/zuul-web-1.2.war")
+                    i(class='icon-white icon-download')
+                    |  Download 1.2
+                a(class="btn btn-primary btn-large", href="https://github.com/mcantrell/zuul", target="_blank")
+                    |  Source Code &raquo;
+                a(class="btn btn-primary btn-large", href="https://github.com/mcantrell/Zuul/wiki", target="_blank")
+                    |  Documentation &raquo;
+                a(class="btn btn-primary btn-large", href="/LICENSE.txt", target="_blank")
+                    |  License &raquo;
+
+    script
+        $(function () {
+            selectTab("#zuul");
+            $("#zuulCarousel").carousel();
+        });
