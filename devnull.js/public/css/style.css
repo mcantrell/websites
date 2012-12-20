@@ -31,6 +31,10 @@
     margin-bottom: 1em;
 }
 
+i.icon-before {
+    margin-right: 5px;
+}
+
 .banner {
     display: block;
     width: 100%;
