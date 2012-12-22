@@ -14,6 +14,10 @@ var express = require('express')
     , GoogleStrategy = require('passport-google').Strategy
     , path = require('path');
 
+
+
+/* ------------------ Security Config  -------------------- */
+// TODO externalize to database
 var users = {
     'https://www.google.com/accounts/o8/id?id=AItOawkw5lt5oauub3yJYk7qigE0COQcGFfukYE': {
         id: 'https://www.google.com/accounts/o8/id?id=AItOawkw5lt5oauub3yJYk7qigE0COQcGFfukYE',
@@ -21,6 +25,7 @@ var users = {
     }
 };
 
+// TODO componentize security
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -43,8 +48,8 @@ passport.use(new GoogleStrategy({
     }
 ));
 
+/* ------------------ App Config -------------------- */
 var app = express();
-
 app.configure(function () {
     app.set('port', config.server.port);
     app.set('views', __dirname + '/views');
@@ -57,6 +62,11 @@ app.configure(function () {
     app.use(express.session({ secret: config.server.salt }));
     app.use(passport.initialize());
     app.use(passport.session());
+    // makes the user available to the layout... TODO: I'm sure ther's a better way
+    app.use(function(req, res, next){
+        res.locals.user = req.user;
+        next();
+    });
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -65,11 +75,11 @@ app.configure('development', function () {
     app.use(express.errorHandler());
 });
 
+/* ------------------ Routes -------------------- */
 app.get('/', routes.index);
 app.get('/zuul', zuul.index);
 app.get('/about', about.index);
 app.get('/401', errors.unauthorized);
-
 app.get('/auth/google',
     passport.authenticate('google'),
     function(req, res){
@@ -83,6 +93,7 @@ app.get('/auth/google/return',
         res.redirect('/');
     });
 
+/* ------------------ Server -------------------- */
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
