@@ -5,9 +5,6 @@
 var express = require('express')
     , config = require('./config.js')
     , routes = require('./routes')
-    , zuul = require('./routes/zuul')
-    , about = require('./routes/about')
-    , errors = require('./routes/errors')
     , http = require('http')
     , util = require('util')
     , passport = require('passport')
@@ -55,6 +52,7 @@ app.configure(function () {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
+    app.use(express.errorHandler());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -71,15 +69,12 @@ app.configure(function () {
     app.use(express.static(path.join(__dirname, 'public')));
 });
 
-app.configure('development', function () {
-    app.use(express.errorHandler());
-});
 
 /* ------------------ Routes -------------------- */
 app.get('/', routes.index);
-app.get('/zuul', zuul.index);
-app.get('/about', about.index);
-app.get('/401', errors.unauthorized);
+app.get('/zuul', routes.zuul);
+app.get('/about', routes.about);
+app.get('/401', routes.unauthorized);
 app.get('/auth/google',
     passport.authenticate('google'),
     function(req, res){
