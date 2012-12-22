@@ -7,43 +7,8 @@ var express = require('express')
     , routes = require('./routes')
     , http = require('http')
     , util = require('util')
-    , passport = require('passport')
-    , GoogleStrategy = require('passport-google').Strategy
     , path = require('path');
 
-
-
-/* ------------------ Security Config  -------------------- */
-// TODO externalize to database
-var users = {
-    'https://www.google.com/accounts/o8/id?id=AItOawkw5lt5oauub3yJYk7qigE0COQcGFfukYE': {
-        id: 'https://www.google.com/accounts/o8/id?id=AItOawkw5lt5oauub3yJYk7qigE0COQcGFfukYE',
-        name: 'Mike Cantrell'
-    }
-};
-
-// TODO componentize security
-passport.serializeUser(function(user, done) {
-    done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-});
-
-passport.use(new GoogleStrategy({
-        returnURL: 'http://localhost:3000/auth/google/return',
-        realm: 'http://localhost:3000/'
-    },
-    function(identifier, profile, done) {
-        // asynchronous verification, for effect...
-        process.nextTick(function () {
-            console.log("OpenID token: " + identifier);
-            var user = users[identifier];
-            return done(null, user);
-        });
-    }
-));
 
 /* ------------------ App Config -------------------- */
 var app = express();
@@ -58,13 +23,6 @@ app.configure(function () {
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({ secret: config.server.salt }));
-    app.use(passport.initialize());
-    app.use(passport.session());
-    // makes the user available to the layout... TODO: I'm sure ther's a better way
-    app.use(function(req, res, next){
-        res.locals.user = req.user;
-        next();
-    });
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -75,20 +33,8 @@ app.get('/', routes.index);
 app.get('/zuul', routes.zuul);
 app.get('/about', routes.about);
 app.get('/401', routes.unauthorized);
-app.get('/auth/google',
-    passport.authenticate('google'),
-    function(req, res){
-        // The request will be redirected to Google for authentication, so
-        // this function will not be called.
-    });
-app.get('/auth/google/return',
-    passport.authenticate('google', { failureRedirect: '/401' }),
-    function(req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/');
-    });
 
 /* ------------------ Server -------------------- */
-http.createServer(app).listen(app.get('port'), function () {
+http.createServer(app).listen(config.server.port, function () {
     console.log("Express server listening on port " + app.get('port'));
 });
