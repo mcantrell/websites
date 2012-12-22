@@ -3,6 +3,7 @@
  */
 
 var express = require('express')
+    , config = require('./config.js')
     , routes = require('./routes')
     , zuul = require('./routes/zuul')
     , about = require('./routes/about')
@@ -45,7 +46,7 @@ passport.use(new GoogleStrategy({
 var app = express();
 
 app.configure(function () {
-    app.set('port', process.env.PORT || 3000);
+    app.set('port', config.server.port);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(express.favicon());
@@ -53,7 +54,7 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
-    app.use(express.session({ secret: 'notsosecret' }));
+    app.use(express.session({ secret: config.server.salt }));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(app.router);
