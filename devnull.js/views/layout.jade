@@ -38,9 +38,15 @@ html
                             a(href="/zuul") Zuul
                         li(id="about")
                            a(href="/about") About
-                    ul(class="nav pull-right")
-                        li(id="login")
-                           a(href="/auth/google") Login
+                    if !user
+                        ul(class="nav pull-right")
+                            li(id="login")
+                               a(href="/auth/google") Login
+                    else
+                        div(class="navbar-text pull-right")
+                            img(src="http://www.gravatar.com/avatar/ed3c6cd74b711e5dd6bbfc9509cfd8a8?s=32")
+
+
 
     div(class='container', id='main')
         block content
