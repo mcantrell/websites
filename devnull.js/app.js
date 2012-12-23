@@ -2,13 +2,14 @@
  * Module dependencies.
  */
 
-var express = require('express')
-    , config = require('./config.js')
-    , routes = require('./routes')
-    , news = require("./routes/news.js")
-    , http = require('http')
-    , util = require('util')
-    , path = require('path');
+var express = require('express'),
+    config = require('./config.js'),
+    routes = require('./routes'),
+    news = require("./routes/news.js"),
+    http = require('http'),
+    util = require('util'),
+    mongoose = require('mongoose'),
+    path = require('path');
 
 
 /* ------------------ App Config -------------------- */
