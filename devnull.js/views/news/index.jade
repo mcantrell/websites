@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    .row
+        .span12
+            .page-header
+                h1 News
+            table(class="table table-bordered table-hover")
+                thead
+                    tr
+                        th Created
+                        th Title
+                        th Content
+                        th Author
+                tbody
+                    each article in newsList
+                        tr
+                            td #{article.created}
+                            td #{article.title}
+                            td #{article.content}
+                            td #{article.author}
+

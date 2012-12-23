@@ -5,6 +5,7 @@
 var express = require('express')
     , config = require('./config.js')
     , routes = require('./routes')
+    , news = require("./routes/news.js")
     , http = require('http')
     , util = require('util')
     , path = require('path');
@@ -21,7 +22,7 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
-    app.use(express.session({ secret: config.server.salt }));
+    app.use(express.session({ secret: config.server.name }));
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -38,6 +39,7 @@ app.get('/', routes.index);
 app.get('/zuul', routes.zuul);
 app.get('/about', routes.about);
 app.get('/401', routes.unauthorized);
+app.get('/news', news.index);
 
 /* ------------------ Server -------------------- */
 http.createServer(app).listen(config.server.port, function () {
