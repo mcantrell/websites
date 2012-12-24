@@ -1,7 +1,7 @@
 var should = require('should'),
-    config = require('./boot/config.js'),
+    config = require('../boot/config.js'),
     mongoose = require('mongoose'),
-    database = require('./boot/database.js');
+    database = require('../boot/database.js');
 
 before(function (done) {
     var db = mongoose.connection;
