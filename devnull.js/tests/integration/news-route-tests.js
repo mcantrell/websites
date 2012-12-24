@@ -1,5 +1,5 @@
 var should = require("should")
-    , routes = require("../routes/news.js");
+    , routes = require("../../routes/admin/news.js");
 
 
 describe("News Routes", function(){
@@ -7,7 +7,7 @@ describe("News Routes", function(){
         it("should provide a title and list of news records", function(done){
             var response = {
                 render: function(view, data) {
-                    view.should.equal("news/index");
+                    view.should.equal("admin/news");
                     should.exist(data.newsList);
                     data.title.should.equal("News");
                     done();

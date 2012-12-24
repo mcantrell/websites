@@ -12,4 +12,4 @@ exports.about = function(req, res){
     res.render('about', { title: 'Mike Cantrell' });
 };
 
-exports.news = require("./news.js");
+exports.news = require("./admin/news.js");
