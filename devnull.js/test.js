@@ -1,49 +1,18 @@
 var should = require('should'),
+    config = require('./boot/config.js'),
     mongoose = require('mongoose'),
-    async = require('async'),
-    NewsRepository = require('./repositories/news-repository.js').NewsRepository;
-
-var repo;
-var db;
+    database = require('./boot/database.js');
 
 before(function (done) {
-    console.log("Creating NewsRepository");
-    repo = new NewsRepository(function (error, client) {
-        console.log("Finished creating test dependencies");
-        should.not.exist(error);
-        should.exist(client);
-        done();
-    });
-});
-
-before(function (done) {
-    console.log("Creating mongoose connection");
-    mongoose.connect('mongodb://localhost/devnull_test');
-    db = mongoose.connection;
+    var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function () {
         done();
     });
 });
 
-describe('List News', function () {
-    it('should list records', function () {
-        repo.findAll(function (error, results) {
-            should.not.exist(error);
-            should.exist(results);
-        });
-    });
-});
-
 describe('Spike for Mongoose', function () {
-    var newsSchema = mongoose.Schema({
-        title: String,
-        content: String,
-        happened: Date,
-        created: Date,
-        author: String
-    });
-    var News = mongoose.model('News', newsSchema);
+    var News = mongoose.model(config.model.News);
     var moonWalk = new News({
         title: 'Man has Walked on the Moon!',
         content: 'Can you believe it?!?!? OMG!!one!1',
@@ -86,7 +55,6 @@ describe('Spike for Mongoose', function () {
                 News.find({author:'SpaceNerd2001'}, function(err, results) {
                     should.not.exist(err);
                     should.exist(results);
-                    console.log(results);
                     results.length.should.eql(0);
                     done();
                 });

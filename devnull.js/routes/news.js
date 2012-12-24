@@ -1,9 +1,9 @@
-var NewsRepository = require('../repositories/news-repository.js').NewsRepository;
-
-var newsRepo = new NewsRepository();
+var mongoose = require("mongoose"),
+    config = require("../boot/config.js"),
+    News = mongoose.model(config.model.News);
 
 exports.index = function(req, res){
-    newsRepo.findAll(function(err, results) {
+    News.find({}, function(err, results) {
         res.render('news/index', { title: 'News', newsList: results });
     });
 };

@@ -3,14 +3,13 @@
  */
 
 var express = require('express'),
-    config = require('./config.js'),
+    config = require('./boot/config.js'),
+    database = require("./boot/database.js"),
     routes = require('./routes'),
     news = require("./routes/news.js"),
     http = require('http'),
     util = require('util'),
-    mongoose = require('mongoose'),
     path = require('path');
-
 
 /* ------------------ App Config -------------------- */
 var app = express();
@@ -23,7 +22,7 @@ app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(express.cookieParser());
-    app.use(express.session({ secret: config.server.name }));
+    app.use(express.session({ secret: config.server.salt }));
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
 });
