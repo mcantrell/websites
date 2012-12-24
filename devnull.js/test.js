@@ -7,7 +7,7 @@ var repo;
 var db;
 
 before(function (done) {
-    console.log("Creating test dependencies");
+    console.log("Creating NewsRepository");
     repo = new NewsRepository(function (error, client) {
         console.log("Finished creating test dependencies");
         should.not.exist(error);
@@ -17,7 +17,8 @@ before(function (done) {
 });
 
 before(function (done) {
-    mongoose.connect('mongodb://localhost/devnull');
+    console.log("Creating mongoose connection");
+    mongoose.connect('mongodb://localhost/devnull_test');
     db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function () {
@@ -50,7 +51,14 @@ describe('Spike for Mongoose', function () {
         created: new Date(),
         author: 'SpaceNerd2001'
     });
-
+    describe("#clean", function() {
+        it('should remove test data', function(done) {
+            News.collection.remove( function (err) {
+                should.not.exist(err);
+                done();
+            });
+        });
+    });
     describe('#save()', function () {
         it('should save article', function (done) {
             moonWalk.save(function (err, moonWalk) {
