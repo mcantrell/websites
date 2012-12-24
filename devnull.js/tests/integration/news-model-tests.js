@@ -11,7 +11,7 @@ before(function (done) {
     });
 });
 
-describe('Spike for Mongoose', function () {
+describe('News Model CRUD', function () {
     var News = mongoose.model(config.model.News);
     var moonWalk = new News({
         title: 'Man has Walked on the Moon!',
