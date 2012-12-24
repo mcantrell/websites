@@ -6,7 +6,6 @@ var express = require('express'),
     config = require('./boot/config.js'),
     database = require("./boot/database.js"),
     routes = require('./routes'),
-    news = require("./routes/news.js"),
     http = require('http'),
     util = require('util'),
     path = require('path');
@@ -39,7 +38,7 @@ app.get('/', routes.index);
 app.get('/zuul', routes.zuul);
 app.get('/about', routes.about);
 app.get('/401', routes.unauthorized);
-app.get('/news', news.index);
+app.get('/news', routes.news.index);
 
 /* ------------------ Server -------------------- */
 http.createServer(app).listen(config.server.port, function () {
