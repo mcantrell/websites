@@ -1,4 +1,4 @@
-var newsRoute = require("./news.js");
+
 
 exports.index = function(req, res){
   res.render('index', { title: 'Welcome' });
@@ -12,4 +12,4 @@ exports.about = function(req, res){
     res.render('about', { title: 'Mike Cantrell' });
 };
 
-exports.news = newsRoute;
+exports.news = require("./news.js");
