@@ -1,3 +1,5 @@
+var winston = require("winston");
+
 var config = {};
 
 config.model = {};
@@ -13,3 +15,8 @@ config.db.url = process.env.MONGO_URL || "mongodb://localhost/devnull_test";
 
 
 module.exports = config;
+module.exports.logger =  new (winston.Logger)({
+    transports: [
+        new (winston.transports.Console)()
+    ]
+});

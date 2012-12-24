@@ -42,5 +42,5 @@ app.get('/admin/news', routes.news.index);
 
 /* ------------------ Server -------------------- */
 http.createServer(app).listen(config.server.port, function () {
-    console.log("Express server listening on port " + app.get('port'));
+    config.logger.info("Express server listening on port " + app.get('port'));
 });
