@@ -14,7 +14,7 @@ exports.add = function(req, res, next){
     var news = new News({
         title: req.param('title', null),
         content: req.param('content', null),
-        author: 'Mike Cantrell',
+        author: req.param('author', null),
         created: new Date(),
         happened: req.param('happened', new Date())
     });
