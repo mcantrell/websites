@@ -1,28 +1,27 @@
 extends ../layout
 
 block content
+
     .row
         .span12
             .page-header
                 h1 News
-            table(class="table table-bordered table-hover")
-                thead
-                    tr
-                        th Date
-                        th Title
-                        th Content
-                        th Author
-                tbody
-                    each article in newsList
-                        tr
-                            td #{article.happened.toDateString()}
-                            td #{article.title}
-                            td #{article.content}
-                            td #{article.author}
-
-    .row.stacked
-        .span12
-            form.form-horizontal(action='/admin/news', method='POST')
+    .row
+        .span6
+            ul(class="media-list")
+                each article in newsList
+                    li.media.discoverable-container
+                        img(src='/images/icons/news.png', class='media-object pull-left')
+                        div(class='media-body')
+                            h4(class='media-heading') #{article.title}
+                                small #{article.happened.toDateString()}
+                            div(class='media') !{markdown(article.content)}
+                            .media-footer
+                                span by #{article.author}
+                                span.pull-right.discoverable
+                                    a.btn.btn-small.btn-danger(href="/admin/news/delete") Delete
+        .span6
+            form.form-horizontal.well(action='/admin/news', method='POST')
                 legend Create News Article
                 .control-group
                     label.control-label(for='title') Title
@@ -39,7 +38,7 @@ block content
                 .control-group
                     label.control-label(for='content') Content
                     .controls
-                        textarea#content.span4(name='content', placeholder='Content..', rows=10)
+                        textarea#content.span3(name='content', placeholder='Content..', rows=7)
                 .form-actions
                     button.btn.btn-primary(type='submit') Add
 

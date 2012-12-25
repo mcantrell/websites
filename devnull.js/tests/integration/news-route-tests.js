@@ -20,13 +20,14 @@ before(function (done) {
 });
 
 
-describe("News Routes", function () {
-    describe("GET /news", function () {
+describe("News Admin Routes", function () {
+    describe("GET /admin/news", function () {
         it("should provide a title and list of news records", function (done) {
             var response = {
                 render: function (view, data) {
                     view.should.equal("admin/news");
                     should.exist(data.newsList);
+                    should.exist(data.markdown);
                     data.title.should.equal("News");
                     done();
                 }
@@ -35,7 +36,7 @@ describe("News Routes", function () {
         });
 
     });
-    describe("POST /news", function () {
+    describe("POST /admin/news", function () {
         var params = {
             title: "test title",
                 content: "test content",
