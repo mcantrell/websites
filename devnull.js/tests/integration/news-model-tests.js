@@ -1,9 +1,9 @@
 var should = require('should'),
     config = require('../../boot/config.js'),
-    mongoose = require('mongoose'),
-    database = require('../../boot/database.js'),
+    mongoose = require("mongoose"),
     News = mongoose.model(config.model.News);
 
+require("./database-setup.js");
 
 describe('News Model CRUD', function () {
     var moonWalk = new News({

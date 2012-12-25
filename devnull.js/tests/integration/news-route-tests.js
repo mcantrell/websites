@@ -1,23 +1,10 @@
 var should = require("should"),
     config = require("../../boot/config.js"),
     mongoose = require("mongoose"),
-    database = require("../../boot/database.js"),
     News = mongoose.model(config.model.News),
-    routes = require("../../routes/admin/news.js");
+    routes = require("../../routes/admin/news-route.js");
 
-before(function (done) {
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function () {
-        done();
-    });
-});
-before(function (done) {
-    News.collection.remove( function (err) {
-        should.not.exist(err);
-        done();
-    });
-});
+require("./database-setup.js");
 
 
 describe("News Admin Routes", function () {
