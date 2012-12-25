@@ -8,15 +8,40 @@ block content
             table(class="table table-bordered table-hover")
                 thead
                     tr
-                        th Created
+                        th Date
                         th Title
                         th Content
                         th Author
                 tbody
                     each article in newsList
                         tr
-                            td #{article.created}
+                            td #{article.happened.toDateString()}
                             td #{article.title}
                             td #{article.content}
                             td #{article.author}
 
+    .row.stacked
+        .span12
+            form.form-horizontal(action='/admin/news', method='POST')
+                legend Create News Article
+                .control-group
+                    label.control-label(for='title') Title
+                    .controls
+                        input#title(name='title', type='text', placeholder='Title..')
+                .control-group
+                    label.control-label(for='author') Author
+                    .controls
+                        input#author(name='author', type='text', placeholder='Author..')
+                .control-group
+                    label.control-label(for='happened') Happend On
+                    .controls
+                        input#happened(name='happened', type='text', placeholder='Date..')
+                .control-group
+                    label.control-label(for='content') Content
+                    .controls
+                        textarea#content.span4(name='content', placeholder='Content..', rows=10)
+                .form-actions
+                    button.btn.btn-primary(type='submit') Add
+
+    script
+        $("#happened").datepicker();

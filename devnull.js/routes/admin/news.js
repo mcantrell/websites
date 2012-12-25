@@ -8,3 +8,18 @@ exports.index = function(req, res){
         res.render('admin/news', { title: 'News', newsList: results });
     });
 };
+
+exports.add = function(req, res, next){
+    config.logger.info("Adding news article..");
+    var news = new News({
+        title: req.param('title', null),
+        content: req.param('content', null),
+        author: 'Mike Cantrell',
+        created: new Date(),
+        happened: req.param('happened', new Date())
+    });
+    news.save(function(error){
+        if (error) next(error);
+        else res.redirect("/admin/news");
+    });
+};

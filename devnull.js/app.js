@@ -39,6 +39,7 @@ app.get('/zuul', routes.zuul);
 app.get('/about', routes.about);
 app.get('/401', routes.unauthorized);
 app.get('/admin/news', routes.news.index);
+app.post('/admin/news', routes.news.add);
 
 /* ------------------ Server -------------------- */
 http.createServer(app).listen(config.server.port, function () {
