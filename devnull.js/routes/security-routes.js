@@ -3,8 +3,8 @@ var config = require('../boot/config.js'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google').Strategy;
 
-passport.serializeUser(function (user, done) {
-    done(null, user, done);
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {

@@ -51,7 +51,7 @@ app.post('/admin/news', routes.security.authenticated, routes.news.add);
 app.get('/admin/news/remove/:id', routes.security.authenticated, routes.news.remove);
 
 app.get('/login', routes.security.passport.authenticate('google'));
-app.get('/logout', routes.security.passport.logout);
+app.get('/logout', routes.security.logout);
 app.get('/login/verify', routes.security.passport.authenticate('google', { successRedirect: '/', failureRedirect: '/401' }));
 app.get('/401', routes.security.unauthorized);
 
