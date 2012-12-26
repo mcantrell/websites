@@ -1,4 +1,4 @@
-var config = require('./config.js'),
+var config = require('./../boot/config.js'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google').Strategy;
 
@@ -29,11 +29,16 @@ passport.deserializeUser(function(id, done) {
     done(null, users[id])
 });
 
-exports.passport = passport;
+exports.unauthorized = function(req, res) {
+    res.render('401', { title: 'Unauthorized' });
+};
+
 exports.authenticated = function restrict(req, res, next) {
     if (req.user) {
         next();
     } else {
         res.redirect('/login');
     }
-}
+};
+
+exports.passport = passport;
