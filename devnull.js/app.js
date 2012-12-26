@@ -5,10 +5,13 @@
 var express = require('express'),
     config = require('./boot/config.js'),
     database = require("./boot/database.js"),
+    security = require("./boot/security.js"),
     routes = require('./routes'),
     http = require('http'),
     util = require('util'),
     path = require('path');
+
+
 
 /* ------------------ App Config -------------------- */
 var app = express();
@@ -23,6 +26,8 @@ app.configure(function () {
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.session({ secret: config.server.salt }));
+    app.use(security.passport.initialize());
+    app.use(security.passport.session());
     app.use(app.router);
 });
 app.configure('development', function(){
@@ -41,6 +46,8 @@ app.get('/401', routes.unauthorized);
 app.get('/admin/news', routes.news.index);
 app.post('/admin/news', routes.news.add);
 app.get('/admin/news/remove/:id', routes.news.remove);
+app.get('/login', security.passport.authenticate('google'));
+app.get('/login/verify',  security.passport.authenticate('google', { successRedirect: '/', failureRedirect: '/401' }));
 
 /* ------------------ Server -------------------- */
 http.createServer(app).listen(config.server.port, function () {
