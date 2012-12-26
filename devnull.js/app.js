@@ -48,9 +48,9 @@ app.get('/', routes.index);
 app.get('/zuul', routes.zuul);
 app.get('/about', routes.about);
 app.get('/401', routes.unauthorized);
-app.get('/admin/news', routes.news.index);
-app.post('/admin/news', routes.news.add);
-app.get('/admin/news/remove/:id', routes.news.remove);
+app.get('/admin/news', security.authenticated, routes.news.index);
+app.post('/admin/news', security.authenticated, routes.news.add);
+app.get('/admin/news/remove/:id', security.authenticated, routes.news.remove);
 app.get('/login', security.passport.authenticate('google'));
 app.get('/login/verify',  security.passport.authenticate('google', { successRedirect: '/', failureRedirect: '/401' }));
 

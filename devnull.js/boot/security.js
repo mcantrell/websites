@@ -30,3 +30,10 @@ passport.deserializeUser(function(id, done) {
 });
 
 exports.passport = passport;
+exports.authenticated = function restrict(req, res, next) {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
