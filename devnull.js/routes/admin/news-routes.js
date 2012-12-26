@@ -24,3 +24,12 @@ exports.add = function(req, res, next){
         else res.redirect("/admin/news");
     });
 };
+
+exports.remove = function(req, res, next){
+    var id = req.param('id',null);
+    config.logger.info("Removing news article id:", id);
+    News.findByIdAndRemove(id, function(error){
+        if (error) next(error);
+        else res.redirect("/admin/news");
+    });
+};

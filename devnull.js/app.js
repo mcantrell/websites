@@ -40,6 +40,7 @@ app.get('/about', routes.about);
 app.get('/401', routes.unauthorized);
 app.get('/admin/news', routes.news.index);
 app.post('/admin/news', routes.news.add);
+app.get('/admin/news/remove/:id', routes.news.remove);
 
 /* ------------------ Server -------------------- */
 http.createServer(app).listen(config.server.port, function () {

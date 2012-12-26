@@ -19,7 +19,7 @@ block content
                             .media-footer
                                 span by #{article.author}
                                 span.pull-right.discoverable
-                                    a.btn.btn-small.btn-danger(href="/admin/news/delete") Delete
+                                    a.btn.btn-small.btn-danger(href="/admin/news/remove/" + article.id) Delete
         .span6
             form.form-horizontal.well(action='/admin/news', method='POST')
                 legend Create News Article
