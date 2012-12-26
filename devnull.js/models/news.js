@@ -1,12 +1,16 @@
 var mongoose = require("mongoose"),
     config = require("../boot/config.js");
 
+
+var options = {
+    collection: 'news'
+};
 var NewsSchema = new mongoose.Schema({
     title: String,
     content: String,
     happened: Date,
     created: Date,
     author: String
-});
+}, options);
 
-mongoose.model(config.model.News, NewsSchema);
+exports.News = mongoose.model("news", NewsSchema);

@@ -2,8 +2,6 @@ var winston = require("winston");
 
 var config = {};
 
-config.model = {};
-config.model.News = 'News';
 
 config.server = {};
 config.server.host = process.env.DEVNULL_JS_HOST || "localhost";

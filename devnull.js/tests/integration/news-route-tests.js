@@ -1,7 +1,6 @@
 var should = require("should"),
     config = require("../../boot/config.js"),
-    mongoose = require("mongoose"),
-    News = mongoose.model(config.model.News),
+    db = require("../../boot/database.js"),
     routes = require("../../routes/admin/news-routes.js");
 
 require("./database-setup.js");
@@ -17,6 +16,7 @@ describe("News Admin Routes", function () {
                     should.exist(data.newsList);
                     should.exist(data.markdown);
                     data.title.should.equal("News");
+                    data.newsList[0].title.should.equal("Man has Walked on the Moon!");
                     done();
                 }
             };
@@ -34,7 +34,7 @@ describe("News Admin Routes", function () {
             var response = {
                 redirect: function (view) {
                     view.should.equal("/admin/news");
-                    News.findOne(params, function (err, newsArticle) {
+                    db.News.findOne(params, function (err, newsArticle) {
                         should.not.exist(err);
                         should.exist(newsArticle);
                         newsArticle.should.have.property('_id');
@@ -59,7 +59,7 @@ describe("News Admin Routes", function () {
             var response = {
                 redirect: function (view) {
                     view.should.equal("/admin/news");
-                    News.findById(params.id, function (err, results) {
+                    db.News.findById(params.id, function (err, results) {
                         should.not.exist(err);
                         should.not.exist(results);
                         done();

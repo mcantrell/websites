@@ -1,7 +1,6 @@
 var should = require("should"),
     config = require("../../boot/config.js"),
-    mongoose = require("mongoose"),
-    News = mongoose.model(config.model.News),
+    db = require("../../boot/database.js"),
     routes = require("../../routes/index.js");
 
 require("./database-setup.js");
@@ -16,6 +15,7 @@ describe("Index Routes", function () {
                     should.exist(data.newsList);
                     should.exist(data.markdown);
                     data.title.should.equal("Welcome");
+                    data.newsList[0].title.should.equal("Man has Walked on the Moon!");
                     done();
                 }
             };

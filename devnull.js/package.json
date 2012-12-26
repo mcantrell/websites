@@ -13,7 +13,8 @@
         "winston": "0.6.x",
         "marked": "0.2.x",
         "passport": "0.1.x",
-        "passport-google": "0.2.x"
+        "passport-google": "0.2.x",
+        "async": "*"
     },
     "devDependencies": {
         "mocha": "*",
