@@ -17,4 +17,8 @@ exports.about = function (req, res) {
     res.render('about', { title: 'Mike Cantrell' });
 };
 
+exports.unauthorized = function(req, res) {
+    res.render('401', { title: 'Unauthorized' });
+};
+
 exports.news = require("./admin/news-routes.js");

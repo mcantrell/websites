@@ -41,9 +41,18 @@ html
                             a(href="/zuul") Zuul
                         li(id="about")
                            a(href="/about") About
-                ul(class="nav pull-right")
-                    li(id="login")
-                        a(href="/login") Login
+                    ul(class="nav pull-right")
+                        if (!user)
+                            li(id="login")
+                                a(href="/login") Login
+                        else
+                            li#admin.dropdown
+                                a.dropdown-toggle(href="#", data-toggle="dropdown")  Admin
+                                    b.icon-after.caret
+                                ul.dropdown-menu
+                                    li
+                                        a(href="/admin/news") News
+
 
     div(class='container', id='main')
         block content

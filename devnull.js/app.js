@@ -28,7 +28,12 @@ app.configure(function () {
     app.use(express.session({ secret: config.server.salt }));
     app.use(security.passport.initialize());
     app.use(security.passport.session());
+    app.use(function(req, res, next){
+        res.locals.user = req.user;
+        next();
+    });
     app.use(app.router);
+
 });
 app.configure('development', function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));

@@ -38,12 +38,16 @@
 }
 
 .stacked {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
 }
 
-i.icon-before {
-    margin-right: 5px;
+.icon-before {
+    margin-right: 5px !important;
+}
+
+.icon-after  {
+    margin-left: 5px !important;
 }
 
 .media-heading small {

@@ -38,9 +38,13 @@ block content
                 .control-group
                     label.control-label(for='content') Content
                     .controls
-                        textarea#content.span3(name='content', placeholder='Content..', rows=7)
+                        textarea#content.input-block-level(name='content', placeholder='Content..', rows=7)
                 .form-actions
-                    button.btn.btn-primary(type='submit') Add
+                    button.btn.btn-primary.btn-block(type='submit') Add
 
     script
-        $("#happened").datepicker();
+        $(function() {
+            $("#happened").datepicker();
+            selectTab("#admin");
+        });
+

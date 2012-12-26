@@ -17,13 +17,7 @@ passport.use(new GoogleStrategy({
     function(identifier, profile, done) {
         config.logger.info("Attempting to login with id: ", identifier);
         config.logger.info("Profile: ", profile);
-        var user = users[identifier];
-        if (!user) {
-            done(new Error("User " + identifier + " does not exist"));
-        }
-        else {
-            done(null, user);
-        }
+        return done(null, users[identifier]);
     }
 ));
 
