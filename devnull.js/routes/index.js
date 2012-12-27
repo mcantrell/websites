@@ -4,9 +4,10 @@ var mongoose = require("mongoose"),
     db = require("../boot/database.js");
 
 exports.index = function (req, res) {
-    db.News.find({}, function(err, results) {
+    var renderCallback = function(err, results) {
         res.render('index', { title: 'Welcome', newsList: results, markdown:marked });
-    });
+    };
+    db.News.find().sort('-happened').limit(5).exec(renderCallback);
 };
 
 exports.zuul = function (req, res) {

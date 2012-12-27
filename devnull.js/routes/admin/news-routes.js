@@ -5,9 +5,10 @@ var mongoose = require("mongoose"),
 
 exports.index = function(req, res){
     config.logger.info("Requesting news articles..");
-    db.News.find({}, function(err, results) {
+    var renderResults = function(err, results) {
         res.render('admin/news', { title: 'News', newsList: results, markdown: marked });
-    });
+    };
+    db.News.find().sort('-happened').limit(20).exec(renderResults);
 };
 
 exports.add = function(req, res, next){

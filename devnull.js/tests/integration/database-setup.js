@@ -22,7 +22,15 @@ var testUser = new db.User({
 var moonWalk = new db.News({
     title: 'Man has Walked on the Moon!',
     content: 'Can you believe it?!?!? OMG!!one!1',
-    happened: new Date('July 21st, 1969'),
+    happened: new Date('7/21/1969'),
+    created: new Date(),
+    author: 'SpaceNerd2001'
+});
+
+var breakinDuex = new db.News({
+    title: 'Breakin 2: Electric Boogaloo',
+    content: 'Turns the musical movie industry on its head.',
+    happened: new Date('12/21/1984'),
     created: new Date(),
     author: 'SpaceNerd2001'
 });
@@ -40,7 +48,6 @@ before(function (done) {
                     should.not.exist(err);
                     callback();
                 });
-
             },
             function (callback) {
                 config.logger.info("Removing all records from user collection");
@@ -51,6 +58,12 @@ before(function (done) {
             function (callback) {
                 moonWalk.save(function (err) {
                     config.logger.info("Created test news article : ", moonWalk.id);
+                    callback(err);
+                });
+            },
+            function (callback) {
+                breakinDuex.save(function (err) {
+                    config.logger.info("Creating test user: ", breakinDuex.id);
                     callback(err);
                 });
             },
@@ -70,4 +83,4 @@ before(function (done) {
 });
 
 exports.testUsers = [testUser];
-exports.testNews = [moonWalk];
+exports.testNews = [moonWalk, breakinDuex ];
