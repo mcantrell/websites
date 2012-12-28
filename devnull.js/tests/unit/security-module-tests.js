@@ -6,7 +6,7 @@ var should = require("should"),
 describe('Security Service Unit Tests', function () {
     describe('#forGooglePassport()', function () {
         var passport = {
-            use: function(strategy, userLookup) {
+            use: function(strategy) {
                 this.strategy = strategy;
                 return this;
             },

@@ -1,5 +1,5 @@
 var config = require('../boot/config.js'),
-    security = require('../lib/security');
+    security = require('../lib/security').forGooglePassport();
 
 exports.unauthorized = function (req, res) {
     config.logger.error("Unauthorized authentication attempt");
