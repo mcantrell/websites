@@ -5,7 +5,7 @@
 var express = require('express'),
     config = require('./boot/config.js'),
     database = require("./boot/database.js"),
-    security = require('./lib/security'),
+    security = require('./lib/security').forGooglePassport(),
     routes = require('./routes'),
     http = require('http'),
     util = require('util'),
@@ -37,7 +37,6 @@ app.configure(function () {
 app.configure('development', function () {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
-
 app.configure('production', function () {
     app.use(express.errorHandler());
 });

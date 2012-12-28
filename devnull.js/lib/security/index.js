@@ -5,20 +5,24 @@ var config = require('../../boot/config.js'),
 
 
 function SecurityService() {
+    this.passport;
+}
+
+SecurityService.prototype.forGooglePassport = function() {
     var self = this;
-    this.passport = passport;
-    passport.use(new GoogleStrategy({
+    this.passport = passport.use(new GoogleStrategy({
             returnURL: config.passport.returnUrl,
             realm: config.passport.realm
         }, self.lookupAuthenticatedUser
     ));
-    passport.serializeUser(function (user, done) {
+    this.passport.serializeUser(function (user, done) {
         done(null, user.id)
     });
-    passport.deserializeUser(function (id, done) {
+    this.passport.deserializeUser(function (id, done) {
         self.lookupAuthenticatedUser(id, {}, done)
     });
-}
+    return this;
+};
 
 SecurityService.prototype.lookupAuthenticatedUser = function (identifier, profile, done) {
     config.logger.info("Attempting to login with id: ", identifier);
