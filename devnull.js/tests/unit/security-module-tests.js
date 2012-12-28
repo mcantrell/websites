@@ -1,6 +1,6 @@
 var should = require("should"),
     sinon = require("sinon"),
-    SandboxedModule = require('sandboxed-module'),
+    sandbox = require('sandboxed-module'),
     config = require('../../boot/config.js');
 
 
@@ -24,7 +24,7 @@ describe('Security Service Unit Tests', function () {
                 this.userLookup = userLookup;
             }
         };
-        var security = SandboxedModule.require('../../lib/security', {
+        var security = sandbox.require('../../lib/security', {
             requires: {
                 '../../boot/database.js': { },
                 'passport': passport,
@@ -54,7 +54,7 @@ describe('Security Service Unit Tests', function () {
                 callback(null, users[id]);
             }
         };
-        var security = SandboxedModule.require('../../lib/security', {
+        var security = sandbox.require('../../lib/security', {
             requires: {
                 '../../boot/database.js': db,
                 'passport': {},
@@ -71,7 +71,7 @@ describe('Security Service Unit Tests', function () {
         it('should return null if record does not exist', function (done) {
             security.lookupAuthenticatedUser(2, null, function (err, user) {
                 should.not.exist(err);
-                should.not.exist(user)
+                should.not.exist(user);
                 done();
             });
         });
