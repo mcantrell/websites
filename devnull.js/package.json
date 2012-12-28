@@ -18,6 +18,8 @@
     },
     "devDependencies": {
         "mocha": "*",
-        "should": "*"
+        "should": "*",
+        "sinon": "*",
+        "sandboxed-module": "*"
     }
 }
