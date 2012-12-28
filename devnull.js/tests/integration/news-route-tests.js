@@ -16,7 +16,8 @@ describe("News Admin Routes", function () {
                     should.exist(data.newsList);
                     should.exist(data.markdown);
                     data.title.should.equal("News");
-                    data.newsList[0].title.should.equal("Man has Walked on the Moon!");
+                    data.newsList[0].title.should.equal("Breakin 2: Electric Boogaloo");
+                    data.newsList[1].title.should.equal("Man has Walked on the Moon!");
                     done();
                 }
             };
