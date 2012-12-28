@@ -1,4 +1,5 @@
 var should = require("should"),
+    sinon = require("sinon"),
     SandboxedModule = require('sandboxed-module'),
     config = require('../../boot/config.js');
 
@@ -6,19 +7,19 @@ var should = require("should"),
 describe('Security Service Unit Tests', function () {
     describe('#forGooglePassport()', function () {
         var passport = {
-            use: function(strategy) {
+            use: function (strategy) {
                 this.strategy = strategy;
                 return this;
             },
-            serializeUser: function(callback) {
+            serializeUser: function (callback) {
                 config.logger.info("serialization configured");
             },
-            deserializeUser: function(callback) {
+            deserializeUser: function (callback) {
                 config.logger.info("deserialization configured");
             }
         };
         var passportStrategy = {
-            Strategy: function(options, userLookup) {
+            Strategy: function (options, userLookup) {
                 this.options = options;
                 this.userLookup = userLookup;
             }
@@ -38,4 +39,48 @@ describe('Security Service Unit Tests', function () {
             should.exist(passport.strategy.userLookup);
         });
     });
+    describe("#lookupAuthenticatedUser", function () {
+        var db = { };
+        db.User = function () {
+        };
+        db.User.findById = function (id, callback) {
+            if (id < 0) {
+                callback(new Error("Invalid id " + id));
+            }
+            else {
+                var users = {
+                    1: { id: 1, displayName: "test user"}
+                };
+                callback(null, users[id]);
+            }
+        };
+        var security = SandboxedModule.require('../../lib/security', {
+            requires: {
+                '../../boot/database.js': db,
+                'passport': {},
+                'passport-google': {}
+            }
+        });
+        it('should query user model by given identifier', function (done) {
+            security.lookupAuthenticatedUser(1, null, function (err, user) {
+                should.not.exist(err);
+                user.id.should.equal(1);
+                done();
+            });
+        });
+        it('should return null if record does not exist', function (done) {
+            security.lookupAuthenticatedUser(2, null, function (err, user) {
+                should.not.exist(err);
+                should.not.exist(user)
+                done();
+            });
+        });
+        it('should provide error if unable to complete operation', function (done) {
+            security.lookupAuthenticatedUser(-1, null, function (err, user) {
+                should.not.exist(user);
+                should.exist(err);
+                done();
+            });
+        });
+    })
 });
