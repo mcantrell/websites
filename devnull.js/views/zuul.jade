@@ -76,9 +76,8 @@ block content
                             h4 Encryption
                             hr
                             p
-                                | Encrypt and decrypt sensitive values use password based encryption. Currently,
-                                | PBEWithMD5AndDES is used but PBEWithMD5AndTripleDES will be coming in a future release.
-                                | PGP is also on the roadmap.
+                                | Encrypt and decrypt sensitive values use password based encryption (AES, Triple DES,
+                                | DES).
                         li(class='span3')
                             h4 Web Services
                             hr
@@ -132,13 +131,6 @@ block content
                             p
                                 | Allow properties to be encrypted asymmetrically with PGP public and private keys.
                                 | This provides a more secure mechanism to keep your sensitive data safe.
-                        li(class='span3')
-                            h4 Stronger PBE Encryption
-                            hr
-                            p
-                                | Currently, the PBEWithMD5AndDES algorithm is used to encrypt values. Future versions
-                                | will support PBEWithMD5AndTripleDES but will require Java Cryptography Extension (JCE)
-                                | Unlimited Strength Jurisdiction Policy Files installed.
                         li(class='span3')
                             h4 Hierarchical Configurations
                             hr
