@@ -15,3 +15,7 @@ function selectTab(tab) {
     $(".nav li").removeClass("active");
     $(tab).addClass("active");
 }
+
+$(function() {
+    $(".donated").popover({trigger:'hover', placement:'top'});
+});

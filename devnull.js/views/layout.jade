@@ -63,20 +63,27 @@ html
         block content
     div(id='powered-by')
         div(class='container')
-            div(class='row')
-                strong Powered By Open Source
-            div(class='row stacked')
-                div(class='span8 offset3')
-                    a(href='http://twitter.github.com/bootstrap/', rel='tooltip', title='Bootstrap', target='_blank')
+            div(class='row stacked', id='icon-list')
+                div(class='span12')
+                    a(href='http://twitter.github.com/bootstrap/', title='Bootstrap', target='_blank')
                         img(src='/images/icons/bootstrap.png', alt='Bootstrap')
-                    a(href='http://www.springsource.org/', rel='tooltip', title='Spring', target='_blank')
+                    a(href='http://www.springsource.org/', title='Spring', target='_blank')
                         img(src='/images/icons/spring.png', alt='Spring')
-                    a(href='http://groovy.codehaus.org/', rel='tooltip', title='Groovy', target='_blank')
+                    a(href='http://groovy.codehaus.org/', title='Groovy', target='_blank')
                         img(src='/images/icons/groovy.png', class='img-rounded', alt='Groovy')
-                    a(href='http://www.jetbrains.com/idea/', rel='tooltip', title='Intellij IDEA', target='_blank')
-                        img(src='/images/icons/intellij.png', alt='Intellij IDEA')
-                    a(href='http://nodejs.org/', rel='tooltip', title='Node.js', target='_blank')
+                    a(href='http://nodejs.org/', title='Node.js', target='_blank')
                         img(src='/images/icons/nodejs.png', alt='Node.js')
+                    a(href='https://www.appfog.com/', target='_blank')
+                        img(src='/images/icons/appfog.png', alt='AppFog', title='Donated Server',
+                        class='donated', data-content="This site runs on free servers donated AppFog which runs on the open source CloudFoundry framework (PaaS).")
+                    a(href='http://www.yourkit.com/java/profiler/index.jsp', target='_blank')
+                        img(src='/images/icons/yourkit.png', alt='YourKit Profiler', title='Donated License',
+                            class='img-rounded donated', data-content="YourKit is kindly supporting open source projects with its full-featured Java Profiler. YourKit, LLC is the creator of innovative and intelligent tools for profiling Java and .NET applications. Take a look at YourKit's leading software products.")
+                    a(href='http://www.jetbrains.com/idea/', target='_blank')
+                        img(src='/images/icons/intellij.png', alt='Intellij IDEA', title='Donated License',
+                        class='donated', data-content="Jetbrains has graciously donated Intellij IDEA open source developer licenses.")
 
+                div(class='row')
+                    strong Powered By Open Source
     footer(class="footer banner")
 
